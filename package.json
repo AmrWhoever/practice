@@ -4,7 +4,8 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "push": "git add . && git commit -m \"update\" && git push"
+        "push": "npm run push:custom --",
+        "push:custom": "node -e \"const msg = process.argv.slice(2).join(' ') || 'update'; require('child_process').execSync('git add . && git commit -m \\\"' + msg + '\\\" && git push', { stdio: 'inherit' });\""
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^5.2.1",
