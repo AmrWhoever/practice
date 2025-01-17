@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "push": "git add . && git commit -m \"update\" && git push"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^5.2.1",
