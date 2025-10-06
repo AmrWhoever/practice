@@ -64,7 +64,7 @@
             </div>
             <!-- End Tab -->
 
-            <!-- Tab Content -->
+            <!-- Tab Content --> 
             <div id="hs-pmn-pro" class="hidden" role="tabpanel" aria-labelledby="hs-pmn-item-pro">
         	    <!-- Header -->
         	  	<div class="p-3 flex flex-wrap justify-between items-center gap-3">
