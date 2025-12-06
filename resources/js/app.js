@@ -1,10 +1,23 @@
-import { createApp } from 'vue';
-import "preline/preline";
+import './bootstrap';
+import '../css/app.css';
 
-import Homepage from './Components/homepage.vue';
+import { createApp, h } from 'vue';
+import { createInertiaApp } from '@inertiajs/vue3';
 
-
-
-const app = createApp({});
-app.component('Homepage', Homepage);
-app.mount('#app');
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
+    const page = pages[`./Pages/${name}.vue`];
+    
+    if (!page) {
+      throw new Error(`Page not found: ${name}`);
+    }
+    
+    return page;
+  },
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el);
+  },
+});
